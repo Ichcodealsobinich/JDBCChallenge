@@ -29,15 +29,34 @@
 					</archive>
 				</configuration>
 			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					<archive>
+						<manifest>
+							<mainClass>de.telekom.jdbcchallenge.Main</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
 		</plugins>
-    </build>
-    
+    </build>    
     	<dependencies>
 			<dependency>
     			<groupId>org.mariadb.jdbc</groupId>
     			<artifactId>mariadb-java-client</artifactId>
     			<version>2.7.3</version>
 		</dependency> 
-    </dependencies>
-    
+    </dependencies>    
 </project>
