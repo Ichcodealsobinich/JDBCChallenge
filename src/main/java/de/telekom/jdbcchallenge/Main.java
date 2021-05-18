@@ -21,8 +21,13 @@ public class Main {
 				ps.setString(2, "1");
 				ps.setString(3, "Paul");
 				ps.setString(4, "Paulsen");
-				ps.executeQuery();
+				ps.execute();
 				
+				ps.setString(1, "2");
+				ps.setString(2, "0");
+				ps.setString(3, "Paula");
+				ps.setString(4, "Paulsen");
+				ps.execute();
 				/*create a "normal" statement for reading*/
 				String query= "SELECT * FROM personen";					
 				try(Statement statement = connection.createStatement()) {
@@ -37,7 +42,7 @@ public class Main {
 						}
 					} catch (Exception e) {	} //resultSet.close() will be called automatically				
 				}catch (Exception e) { } //statement.close() will be called automatically
-			}catch (Exception e) {e.printStackTrace();} //preparedStatement.close() will be called automatically
+			}catch (Exception e) {} //preparedStatement.close() will be called automatically
 		} catch (Exception e) {	} //connection.close() will be called automatically
 	}
 }
